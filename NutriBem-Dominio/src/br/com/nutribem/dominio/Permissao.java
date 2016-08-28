@@ -1,11 +1,16 @@
 package br.com.nutribem.dominio;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity
 public class Permissao extends EntidadeDominio {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 5635758496415760256L;
+	@Column(unique = true, nullable = false)
 	private String nivel;
 	
 	public Permissao(Long id, String nivel){

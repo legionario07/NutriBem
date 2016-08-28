@@ -8,15 +8,35 @@
 		<property name="hibernate.connection.password">root</property>
 		<property name="hibernate.connection.url">jdbc:mysql://localhost/nutribem_bd</property>
 		<property name="hibernate.connection.username">root</property>
-		
+
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">false</property>
 		<property name="hbm2ddl.auto">update</property>
-		
+
 		<!-- Entidades -->
-		<mapping class="br.com.nutribem.dominio.EntidadeDominio" />
+		<mapping class="br.com.nutribem.dominio.Caixa" />
+		<mapping class="br.com.nutribem.dominio.CaixaFuncionario" />
+		<mapping class="br.com.nutribem.dominio.CaixaLoja" />
 		<mapping class="br.com.nutribem.dominio.Categoria" />
-		
+		<mapping class="br.com.nutribem.dominio.Cidade" />
+		<mapping class="br.com.nutribem.dominio.Colaborador" />
+		<mapping class="br.com.nutribem.dominio.Contato" />
+		<mapping class="br.com.nutribem.dominio.Endereco" />
+		<mapping class="br.com.nutribem.dominio.EntidadeDominio" />
+		<mapping class="br.com.nutribem.dominio.Estado" />
+		<mapping class="br.com.nutribem.dominio.FormaDePagamento" />
+		<mapping class="br.com.nutribem.dominio.Fornecedor" />
+		<mapping class="br.com.nutribem.dominio.ItemPedido" />
+		<mapping class="br.com.nutribem.dominio.Loja" />
+		<mapping class="br.com.nutribem.dominio.Pagamento" />
+		<mapping class="br.com.nutribem.dominio.Pedido" />
+		<mapping class="br.com.nutribem.dominio.PedidoStatus" />
+		<mapping class="br.com.nutribem.dominio.Permissao" />
+		<mapping class="br.com.nutribem.dominio.Produto" />
+		<mapping class="br.com.nutribem.dominio.Retirada" />
+		<mapping class="br.com.nutribem.dominio.UnidadeDeMedida" />
+		<mapping class="br.com.nutribem.dominio.Usuario" />
+
 	</session-factory>
 </hibernate-configuration>

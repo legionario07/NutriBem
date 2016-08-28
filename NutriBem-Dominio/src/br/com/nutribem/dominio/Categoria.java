@@ -10,6 +10,7 @@ public class Categoria extends EntidadeDominio implements Serializable{
 
 	private static final long serialVersionUID = -6394527136029323070L;
 
+	@Column(unique = true, nullable = false)
 	private String categoria;
 	
 	public Categoria(Long id, String categoria){
@@ -26,7 +27,6 @@ public class Categoria extends EntidadeDominio implements Serializable{
 		
 	}
 
-	@Column(unique = true, nullable = false)
 	public String getCategoria() {
 		return categoria;
 	}
