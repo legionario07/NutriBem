@@ -2,8 +2,9 @@ package br.com.nutribem.dominio;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
-@Entity
+@Entity @Table(name = "unidade_medida")
 public class UnidadeDeMedida extends EntidadeDominio {
 
 	/**
@@ -11,7 +12,7 @@ public class UnidadeDeMedida extends EntidadeDominio {
 	 */
 	private static final long serialVersionUID = -6562388109255686107L;
 	
-	@Column(unique = true, nullable = false)
+	@Column(unique = true, nullable = false, name = "unidade_medida") 
 	private String unidadeDeMedida;
 	
 	public UnidadeDeMedida(Long id, String unidadeDeMedida){

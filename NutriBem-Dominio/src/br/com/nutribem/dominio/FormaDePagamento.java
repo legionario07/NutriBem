@@ -1,12 +1,17 @@
 package br.com.nutribem.dominio;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@Entity @Table(name = "forma_pagamento")
 public class FormaDePagamento extends EntidadeDominio{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -4318308102167643140L;
+	@Column(unique = true, nullable = false)
 	private String forma;
 	
 	public FormaDePagamento(Long id, String forma){

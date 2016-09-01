@@ -1,5 +1,11 @@
 package br.com.nutribem.dominio;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity @Table(name = "caixa_funcionario")
 public class CaixaFuncionario extends Caixa {
 
 	/**
@@ -7,6 +13,7 @@ public class CaixaFuncionario extends Caixa {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	@OneToOne(fetch = FetchType.EAGER)
 	private Colaborador colaborador;
 
 	public CaixaFuncionario(Long id, Colaborador colaborador){

@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity @Table(name = "caixa_loja")
 public class CaixaLoja extends Caixa {
 
 	/**
@@ -12,11 +17,14 @@ public class CaixaLoja extends Caixa {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	
+	@ElementCollection()
 	private List<Pagamento> pagamentos;
+	@ElementCollection
 	private List<Retirada> retiradas;
+	@ElementCollection
 	private List<CaixaFuncionario> caixas;
 
-	
 	
 	public List<Pagamento> getPagamentos() {
 		return pagamentos;

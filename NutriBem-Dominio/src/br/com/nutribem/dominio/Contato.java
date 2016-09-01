@@ -2,20 +2,23 @@ package br.com.nutribem.dominio;
 
 import java.io.Serializable;
 
-public class Contato extends EntidadeDominio implements Serializable{
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
-	private static final long serialVersionUID = 3987588053820336479L;
+@Embeddable
+public class Contato implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Column(name = "telefone_fixo")
 	private String telefoneFixo;
+	@Column(name = "telefone_comercial")
 	private String telefoneComercial;
 	private String celular;
 	private String email;
 	
-	
-	public Contato(Long id, String telefoneFixo, String telefoneComercial, 
-			String celular, String email){
-		this(telefoneFixo, telefoneComercial, celular, email);
-		this.setId(id);
-	}
 	
 	public Contato(String telefoneFixo, String telefoneComercial, 
 			String celular, String email){
@@ -28,7 +31,7 @@ public class Contato extends EntidadeDominio implements Serializable{
 	public Contato(){
 		
 	}
-	
+
 	public String getTelefoneFixo() {
 		return telefoneFixo;
 	}
@@ -58,8 +61,6 @@ public class Contato extends EntidadeDominio implements Serializable{
 	public String toString() {
 
 		StringBuilder retorno = new StringBuilder();
-		retorno.append("\nId - ");
-		retorno.append(this.getId());
 		retorno.append("\nCelular - ");
 		retorno.append(getCelular());
 		retorno.append("\nTelefone Fixo - ");

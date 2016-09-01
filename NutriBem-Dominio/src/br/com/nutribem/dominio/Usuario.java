@@ -1,13 +1,21 @@
 package br.com.nutribem.dominio;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Usuario extends EntidadeDominio {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -8346722903310941777L;
+	private static final long serialVersionUID = 1L;
+	@Column(unique = true, nullable = false)
 	private String login;
 	private String senha;
+	@OneToOne(fetch = FetchType.EAGER)
 	private Permissao permissao;
 	
 	public Usuario(Long id, String login, 

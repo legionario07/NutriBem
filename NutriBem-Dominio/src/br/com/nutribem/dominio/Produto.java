@@ -5,20 +5,40 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
 public class Produto extends EntidadeDominio{
 
 	private static final long serialVersionUID = 1199548372165014072L;
 	
+	@Column(nullable = false)
 	private String descricao;
+	@Column(name = "codigo_barras", unique = true)
 	private String codigoBarras;
+	@Column(name = "qtde_estoque")
 	private Integer quantidadeEstoque;
+	@Column(name = "qtde_minima")
 	private Integer quantidadeMinima;
 	private BigDecimal preco;
+	@Temporal(TemporalType.DATE) @Column(name = "data_fabricacao")
 	private Date dataDeFabricacao;
+	@Temporal(TemporalType.DATE) @Column(name = "data_validade")
 	private Date dataDeValidade;
 	private String lote;
+	@OneToOne(fetch = FetchType.EAGER)
 	private Categoria categoria;
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "unidade_medida_id")
 	private UnidadeDeMedida unidadeDeMedida;
+	@ElementCollection(fetch = FetchType.EAGER)
 	private List<Fornecedor> fornecedores;
 	
 	public Produto(Long id, String descricao, String codigoBarras, Integer quantidadeEstoque, Integer quantidadeMinima,

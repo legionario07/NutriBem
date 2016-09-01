@@ -1,5 +1,12 @@
 package br.com.nutribem.dominio;
 
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Loja extends EntidadeDominio{
 
 	/**
@@ -8,9 +15,13 @@ public class Loja extends EntidadeDominio{
 	private static final long serialVersionUID = 1L;
 	
 	private String nome;
+	@Column(name = "nome_fantasia")
 	private String nomeFantasia;
+	@Column(unique = true, nullable = false)
 	private String cnpj;
+	@Embedded
 	private Contato contato;
+	@OneToOne(fetch = FetchType.EAGER)
 	private Endereco endereco;
 	
 	public Loja(Long id, String nome, String nomeFantasia, String cnpj, 

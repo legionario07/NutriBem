@@ -2,6 +2,11 @@ package br.com.nutribem.dominio;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.Transient;
+
+@Entity
 public class Endereco extends EntidadeDominio implements Serializable{
 
 	private static final long serialVersionUID = 6128853462128401001L;
@@ -10,6 +15,7 @@ public class Endereco extends EntidadeDominio implements Serializable{
 	private String numero;
 	private String complemento;
 	private String bairro;
+	@OneToOne
 	private Cidade cidade;
 	
 	
@@ -31,6 +37,12 @@ public class Endereco extends EntidadeDominio implements Serializable{
 	public Endereco(Cidade cidade){
 		this();
 		this.setCidade(cidade);
+	}
+	
+	@Override @Transient
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return super.getId();
 	}
 	
 	public Endereco(){

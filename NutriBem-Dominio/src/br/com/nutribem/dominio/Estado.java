@@ -1,5 +1,8 @@
 package br.com.nutribem.dominio;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Estado extends EntidadeDominio {
 
 	private static final long serialVersionUID = 1231675706483651308L;

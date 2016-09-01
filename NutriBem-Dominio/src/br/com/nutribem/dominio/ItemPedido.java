@@ -4,12 +4,18 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity @Table(name = "item_pedido")
 public class ItemPedido extends EntidadeDominio{
 
 	private static final long serialVersionUID = -3011245822946210763L;
 
 	private Integer quantidade;
 	private BigDecimal valor;
+	@ElementCollection
 	private List<Produto> produtos;
 	
 	public ItemPedido(Long id, Integer quantidade, BigDecimal valor, List<Produto> produtos){

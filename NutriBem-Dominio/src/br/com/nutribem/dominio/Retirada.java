@@ -3,6 +3,14 @@ package br.com.nutribem.dominio;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
 public class Retirada extends EntidadeDominio {
 
 	/**
@@ -12,7 +20,9 @@ public class Retirada extends EntidadeDominio {
 
 	private String descricao;
 	private BigDecimal valor;
+	@Temporal(TemporalType.TIMESTAMP) @Column(name = "data_retirada")
 	private Date dataRetirada;
+	@OneToOne(fetch = FetchType.EAGER)
 	private Colaborador colaborador;
 	
 	public Retirada(Long id, String descricao, BigDecimal valor, 

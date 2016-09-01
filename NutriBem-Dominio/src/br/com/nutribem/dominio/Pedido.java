@@ -5,13 +5,26 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
 public class Pedido extends EntidadeDominio{
 
 	private static final long serialVersionUID = -5070650738264686464L;
 	
 	private BigDecimal valor;
+	@Temporal(TemporalType.TIMESTAMP) @Column(name = "data_pedido")
 	private Date dataPedido;
+	@OneToOne 
+	@JoinColumn(name = "pedido_status_id")
 	private PedidoStatus pedidoStatus;
+	@ElementCollection
 	private List<ItemPedido> itens;
 	
 	public Pedido(Long id, BigDecimal valor, Date dataPedido, PedidoStatus pedidoStatus, List<ItemPedido> itens) {
@@ -32,6 +45,7 @@ public class Pedido extends EntidadeDominio{
 		this.pedidoStatus = new PedidoStatus();
 		this.itens = new ArrayList<ItemPedido>();
 	}
+	
 	
 	public BigDecimal getValor() {
 		return valor;

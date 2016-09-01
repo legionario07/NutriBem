@@ -3,18 +3,36 @@ package br.com.nutribem.dominio;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import br.com.nutribem.dominio.enums.SexoType;
 
+@Entity
 public class Colaborador extends EntidadeDominio implements Serializable{
 
 	private static final long serialVersionUID = 1861577597606714720L;
 	private String nome;
+	@Column(name = "data_nascimento", nullable = false) @Temporal(TemporalType.DATE)
 	private Date dataDeNascimento;
+	@Column(unique = true, nullable = false)
 	private String cpf;
+	@Column(name = "ativo")
 	private Boolean isAtivo;
+	@Enumerated(EnumType.STRING)
 	private SexoType sexo;
+	@OneToOne
 	private Endereco endereco;
+	@Embedded
 	private Contato contato;
+	@OneToOne(fetch = FetchType.EAGER)
 	private Usuario usuario;
 	
 	public Colaborador(Long id, String nome, Date dataDeNascimento, 

@@ -1,5 +1,11 @@
 package br.com.nutribem.dominio;
 
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Fornecedor extends EntidadeDominio {
 
 	/**
@@ -7,8 +13,11 @@ public class Fornecedor extends EntidadeDominio {
 	 */
 	private static final long serialVersionUID = 4977156671177763274L;
 	private String nome;
+	@Column(unique = true)
 	private String cnpj;
+	@OneToOne
 	private Endereco endereco;
+	@Embedded
 	private Contato contato;
 	
 	public Fornecedor(Long id, String nome, String cnpj, Endereco endereco, 

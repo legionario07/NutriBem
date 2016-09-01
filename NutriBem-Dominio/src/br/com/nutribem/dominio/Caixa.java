@@ -3,14 +3,20 @@ package br.com.nutribem.dominio;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@MappedSuperclass
 public abstract class Caixa extends EntidadeDominio{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private BigDecimal valor;
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date data;
 	
 	public Caixa(Long id, BigDecimal valor, Date data){

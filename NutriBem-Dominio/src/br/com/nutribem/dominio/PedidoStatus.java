@@ -1,11 +1,17 @@
 package br.com.nutribem.dominio;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity @Table(name = "pedido_status")
 public class PedidoStatus extends EntidadeDominio {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 5137745839174495691L;
+	@Column(unique = true, nullable = false)
 	private String pedidoStatus;
 	
 	public PedidoStatus(Long id, String pedidoStatus) {
