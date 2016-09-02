@@ -21,6 +21,7 @@
 		<mapping class="br.com.nutribem.dominio.Categoria" />
 		<mapping class="br.com.nutribem.dominio.Cidade" />
 		<mapping class="br.com.nutribem.dominio.Colaborador" />
+		<mapping class="br.com.nutribem.dominio.Contato" />
 		<mapping class="br.com.nutribem.dominio.Endereco" />
 		<mapping class="br.com.nutribem.dominio.EntidadeDominio" />
 		<mapping class="br.com.nutribem.dominio.Estado" />

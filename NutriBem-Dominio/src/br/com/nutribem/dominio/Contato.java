@@ -3,10 +3,10 @@ package br.com.nutribem.dominio;
 import java.io.Serializable;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.persistence.Entity;
 
-@Embeddable
-public class Contato implements Serializable{
+@Entity
+public class Contato extends EntidadeDominio implements Serializable{
 
 	/**
 	 * 

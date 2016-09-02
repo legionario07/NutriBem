@@ -3,8 +3,8 @@ package br.com.nutribem.dominio;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -28,9 +28,9 @@ public class Colaborador extends EntidadeDominio implements Serializable{
 	private Boolean isAtivo;
 	@Enumerated(EnumType.STRING)
 	private SexoType sexo;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
-	@Embedded
+	@OneToOne(cascade = CascadeType.ALL)
 	private Contato contato;
 	@OneToOne(fetch = FetchType.EAGER)
 	private Usuario usuario;

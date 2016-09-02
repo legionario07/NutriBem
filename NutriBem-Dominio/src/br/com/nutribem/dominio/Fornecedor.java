@@ -1,7 +1,6 @@
 package br.com.nutribem.dominio;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
@@ -17,7 +16,7 @@ public class Fornecedor extends EntidadeDominio {
 	private String cnpj;
 	@OneToOne
 	private Endereco endereco;
-	@Embedded
+	@OneToOne
 	private Contato contato;
 	
 	public Fornecedor(Long id, String nome, String cnpj, Endereco endereco, 

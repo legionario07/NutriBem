@@ -11,7 +11,7 @@ public class Cidade extends EntidadeDominio implements Serializable{
 
 	private static final long serialVersionUID = 5683204210892356435L;
 	private String nome;
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER) 
 	private Estado estado;
 	
 	public Cidade(Long id, String nome, Estado estado){

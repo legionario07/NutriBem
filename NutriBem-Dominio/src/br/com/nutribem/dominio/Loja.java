@@ -1,7 +1,6 @@
 package br.com.nutribem.dominio;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToOne;
@@ -19,7 +18,7 @@ public class Loja extends EntidadeDominio{
 	private String nomeFantasia;
 	@Column(unique = true, nullable = false)
 	private String cnpj;
-	@Embedded
+	@OneToOne
 	private Contato contato;
 	@OneToOne(fetch = FetchType.EAGER)
 	private Endereco endereco;
