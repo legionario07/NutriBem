@@ -2,6 +2,7 @@ package br.com.nutribem.dominio;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
@@ -15,7 +16,7 @@ public class Endereco extends EntidadeDominio implements Serializable{
 	private String numero;
 	private String complemento;
 	private String bairro;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.REFRESH)
 	private Cidade cidade;
 	
 	

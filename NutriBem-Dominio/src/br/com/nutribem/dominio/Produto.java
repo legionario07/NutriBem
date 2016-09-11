@@ -153,13 +153,13 @@ public class Produto extends EntidadeDominio{
 		retorno.append(getCategoria());
 		retorno.append("\nCodigo de Barras - ");
 		retorno.append(getCodigoBarras());
-		retorno.append("\nPreço - ");
+		retorno.append("\nPreÃ§o - ");
 		retorno.append(getPreco());
 		retorno.append("\tQuantidade em Estoque - ");
 		retorno.append(getQuantidadeEstoque());
 		retorno.append("\tQuantidade Minima - ");
 		retorno.append(getQuantidadeMinima());
-		retorno.append("\nData de Fabricação - ");
+		retorno.append("\nData de FabricaÃ§Ã£o - ");
 		retorno.append(getDataDeFabricacao());
 		retorno.append("\tData de Validade - ");
 		retorno.append(getDataDeValidade());

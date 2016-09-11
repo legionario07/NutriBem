@@ -15,6 +15,7 @@ public class Usuario extends EntidadeDominio {
 	@Column(unique = true, nullable = false)
 	private String login;
 	private String senha;
+	private Boolean ativo;
 	@OneToOne(fetch = FetchType.EAGER)
 	private Permissao permissao;
 	
@@ -47,6 +48,16 @@ public class Usuario extends EntidadeDominio {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
+
 	public Permissao getPermissao() {
 		return permissao;
 	}
@@ -64,6 +75,8 @@ public class Usuario extends EntidadeDominio {
 		retorno.append(getLogin());
 		retorno.append("\tSenha - ");
 		retorno.append(getSenha());
+		retorno.append("\tAtivo - ");
+		retorno.append(getAtivo());
 		retorno.append(getPermissao());
 		
 		return retorno.toString();

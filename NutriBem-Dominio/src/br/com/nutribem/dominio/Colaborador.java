@@ -24,8 +24,6 @@ public class Colaborador extends EntidadeDominio implements Serializable{
 	private Date dataDeNascimento;
 	@Column(unique = true, nullable = false)
 	private String cpf;
-	@Column(name = "ativo")
-	private Boolean isAtivo;
 	@Enumerated(EnumType.STRING)
 	private SexoType sexo;
 	@OneToOne(cascade = CascadeType.ALL)
@@ -36,7 +34,7 @@ public class Colaborador extends EntidadeDominio implements Serializable{
 	private Usuario usuario;
 	
 	public Colaborador(Long id, String nome, Date dataDeNascimento, 
-			String cpf, Boolean isAtivo, SexoType sexo, Endereco endereco, 
+			String cpf, SexoType sexo, Endereco endereco, 
 			Contato contato, Usuario usuario){
 		
 		this(sexo, endereco, contato, usuario);
@@ -44,7 +42,6 @@ public class Colaborador extends EntidadeDominio implements Serializable{
 		this.setNome(nome);
 		this.setDataDeNascimento(dataDeNascimento);
 		this.setCpf(cpf);
-		this.setIsAtivo(isAtivo);
 	}
 	
 	public Colaborador(SexoType sexo, Endereco endereco, Contato contato, 
@@ -81,12 +78,6 @@ public class Colaborador extends EntidadeDominio implements Serializable{
 	}
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
-	}
-	public Boolean getIsAtivo() {
-		return isAtivo;
-	}
-	public void setIsAtivo(Boolean isAtivo) {
-		this.isAtivo = isAtivo;
 	}
 	public SexoType getSexo() {
 		return sexo;
@@ -130,8 +121,6 @@ public class Colaborador extends EntidadeDominio implements Serializable{
 		retorno.append(getEndereco());
 		retorno.append(getContato());
 		retorno.append(getUsuario());
-		retorno.append("\nAtivo - ");
-		retorno.append(isAtivo);
 		
 		return retorno.toString();
 	}

@@ -1,5 +1,6 @@
 package br.com.nutribem.dominio;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,9 +19,9 @@ public class Loja extends EntidadeDominio{
 	private String nomeFantasia;
 	@Column(unique = true, nullable = false)
 	private String cnpj;
-	@OneToOne
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Contato contato;
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER,  cascade = CascadeType.ALL)
 	private Endereco endereco;
 	
 	public Loja(Long id, String nome, String nomeFantasia, String cnpj, 
