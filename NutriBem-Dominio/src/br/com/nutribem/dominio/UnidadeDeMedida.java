@@ -39,14 +39,8 @@ public class UnidadeDeMedida extends EntidadeDominio {
 	
 	@Override
 	public String toString() {
-
-		StringBuilder retorno = new StringBuilder();
-		retorno.append("\nId - ");
-		retorno.append(this.getId());
-		retorno.append("\tUnidade de Medida - ");
-		retorno.append(getUnidadeDeMedida());
 		
-		return retorno.toString();
+		return getUnidadeDeMedida();
 	}
 
 	@Override

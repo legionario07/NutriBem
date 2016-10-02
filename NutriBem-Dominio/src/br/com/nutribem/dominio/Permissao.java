@@ -38,13 +38,7 @@ public class Permissao extends EntidadeDominio {
 	@Override
 	public String toString() {
 
-		StringBuilder retorno = new StringBuilder();
-		retorno.append("\nId - ");
-		retorno.append(this.getId());
-		retorno.append("\tNivel - ");
-		retorno.append(getNivel());
-		
-		return retorno.toString();
+		return getNivel();
 	}
 
 	@Override

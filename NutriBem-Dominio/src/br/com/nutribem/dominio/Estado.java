@@ -40,15 +40,7 @@ public class Estado extends EntidadeDominio {
 	@Override
 	public String toString() {
 
-		StringBuilder retorno = new StringBuilder();
-		retorno.append("\nId - ");
-		retorno.append(this.getId());
-		retorno.append("\tNome - ");
-		retorno.append(getNome());
-		retorno.append("\tUF - ");
-		retorno.append(getUf());
-				
-		return retorno.toString();
+		return getUf();
 	}
 
 	@Override

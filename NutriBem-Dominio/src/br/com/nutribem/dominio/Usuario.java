@@ -1,5 +1,6 @@
 package br.com.nutribem.dominio;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,7 +17,7 @@ public class Usuario extends EntidadeDominio {
 	private String login;
 	private String senha;
 	private Boolean ativo;
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	private Permissao permissao;
 	
 	public Usuario(Long id, String login, 

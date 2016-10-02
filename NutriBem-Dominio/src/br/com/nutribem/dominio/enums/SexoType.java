@@ -2,8 +2,8 @@ package br.com.nutribem.dominio.enums;
 
 public enum SexoType {
 
-	M("MASCULINO"),
-	F("FEMININO");
+	MASCULINO("MASCULINO"),
+	FEMININO("FEMININO");
 	
 	private String descricao;
 	

@@ -38,13 +38,7 @@ public class Categoria extends EntidadeDominio implements Serializable{
 	@Override
 	public String toString() {
 
-		StringBuilder retorno = new StringBuilder();
-		retorno.append("Id - ");
-		retorno.append(this.getId());
-		retorno.append("\tCategoria - ");
-		retorno.append(this.getCategoria());
-		
-		return retorno.toString();
+		return getCategoria();
 	}
 
 	@Override

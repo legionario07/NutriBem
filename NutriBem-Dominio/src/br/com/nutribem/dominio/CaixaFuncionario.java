@@ -1,5 +1,6 @@
 package br.com.nutribem.dominio;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToOne;
@@ -13,7 +14,7 @@ public class CaixaFuncionario extends Caixa {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	private Colaborador colaborador;
 
 	public CaixaFuncionario(Long id, Colaborador colaborador){

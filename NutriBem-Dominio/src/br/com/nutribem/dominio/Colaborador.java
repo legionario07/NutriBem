@@ -30,7 +30,7 @@ public class Colaborador extends EntidadeDominio implements Serializable{
 	private Endereco endereco;
 	@OneToOne(cascade = CascadeType.ALL)
 	private Contato contato;
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Usuario usuario;
 	
 	public Colaborador(Long id, String nome, Date dataDeNascimento, 

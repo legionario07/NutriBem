@@ -1,5 +1,6 @@
 package br.com.nutribem.dominio;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
@@ -14,9 +15,9 @@ public class Fornecedor extends EntidadeDominio {
 	private String nome;
 	@Column(unique = true)
 	private String cnpj;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Contato contato;
 	
 	public Fornecedor(Long id, String nome, String cnpj, Endereco endereco, 
@@ -71,17 +72,7 @@ public class Fornecedor extends EntidadeDominio {
 	@Override
 	public String toString() {
 
-		StringBuilder retorno = new StringBuilder();
-		retorno.append("\nId - ");
-		retorno.append(this.getId());
-		retorno.append("\nNome - ");
-		retorno.append(getNome());
-		retorno.append("\nCNPJ - ");
-		retorno.append(getCnpj());
-		retorno.append(getEndereco());
-		retorno.append(getContato());
-		
-		return retorno.toString();
+		return getNome();
 	}
 
 	@Override
