@@ -78,15 +78,27 @@ public class Pedido extends EntidadeDominio{
 		StringBuilder retorno = new StringBuilder();
 		retorno.append("\nId - ");
 		retorno.append(this.getId());
-		retorno.append("\tData do Pedido - ");
+		retorno.append("\nData do Pedido - ");
 		retorno.append(getDataPedido());
-		retorno.append("\tValor - ");
+		retorno.append("\nValor - ");
 		retorno.append(getValor());
 		retorno.append("\nStatus do Pedido - ");
 		retorno.append(getPedidoStatus());
 		retorno.append("\nItens do Pedido - ");
+		int j = 0; 
 		for(ItemPedido i : itens){
-			retorno.append(i);
+			retorno.append("\n\nItem: ");
+			retorno.append(++j);
+			retorno.append("\nProduto ");
+			retorno.append(i.getProduto().getDescricao());
+			retorno.append("\nValor uniário - ");
+			retorno.append(i.getProduto().getPreco());
+			retorno.append("\nDesconto - ");
+			retorno.append(i.getDesconto());
+			retorno.append("\nQuantidade - ");
+			retorno.append(i.getQuantidade());
+			retorno.append("\nValor - ");
+			retorno.append(i.getValor());
 		}
 		
 		return retorno.toString();

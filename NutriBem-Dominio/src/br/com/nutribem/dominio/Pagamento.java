@@ -1,12 +1,10 @@
 package br.com.nutribem.dominio;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -26,37 +24,29 @@ public class Pagamento extends EntidadeDominio {
 	@OneToOne(fetch = FetchType.EAGER) 
 	@JoinColumn(name = "forma_pagamento_id")
 	private FormaDePagamento formaDePagamento;
-	@ElementCollection
-	private List<Pedido> pedidos;
+	@OneToOne(cascade = CascadeType.PERSIST)
+	private Pedido pedido;
 	
-	public Pagamento(Long id, Date dataPagamento, BigDecimal valorPago, FormaDePagamento formaDePagamento, List<Pedido> pedidos) {
+	public Pagamento(Long id, Date dataPagamento, BigDecimal valorPago, FormaDePagamento formaDePagamento, Pedido pedido) {
 		
-		this(dataPagamento, valorPago, formaDePagamento, pedidos);
+		this(dataPagamento, valorPago, formaDePagamento, pedido);
 		this.setId(id);
 		
 	}
 	
-	public Pagamento(Date dataPagamento, BigDecimal valorPago, FormaDePagamento formaDePagamento, List<Pedido> pedidos) {
+	public Pagamento(Date dataPagamento, BigDecimal valorPago, FormaDePagamento formaDePagamento, Pedido pedido) {
 		this();
 		this.dataPagamento = dataPagamento;
 		this.valorPago = valorPago;
 		this.formaDePagamento = formaDePagamento;
-		this.pedidos = pedidos;
+		this.pedido = pedido;
 	}
 	
 	public Pagamento(){
 		this.formaDePagamento = new FormaDePagamento();
-		this.pedidos = new ArrayList<Pedido>();
+		this.pedido = new Pedido();
 	}
 	
-	
-	public List<Pedido> getPedidos() {
-		return pedidos;
-	}
-
-	public void setPedidos(List<Pedido> pedidos) {
-		this.pedidos = pedidos;
-	}
 
 	public Date getDataPagamento() {
 		return dataPagamento;
@@ -64,6 +54,14 @@ public class Pagamento extends EntidadeDominio {
 	public void setDataPagamento(Date dataPagamento) {
 		this.dataPagamento = dataPagamento;
 	}
+	public Pedido getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
+
 	public BigDecimal getValorPago() {
 		return valorPago;
 	}
@@ -87,11 +85,10 @@ public class Pagamento extends EntidadeDominio {
 		retorno.append(getDataPagamento());
 		retorno.append("\tValor Pago - ");
 		retorno.append(getValorPago());
+		retorno.append("\tForma de Pagamento - ");
 		retorno.append(getFormaDePagamento());
-		retorno.append("\nPedidos - ");
-		for(Pedido p : pedidos){
-			retorno.append(p);
-		}
+		retorno.append("\nPedido - ");
+		retorno.append(getPedido());
 		
 		return retorno.toString();
 	}

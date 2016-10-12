@@ -1,11 +1,10 @@
 package br.com.nutribem.dominio;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.ElementCollection;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity @Table(name = "item_pedido")
@@ -14,29 +13,40 @@ public class ItemPedido extends EntidadeDominio{
 	private static final long serialVersionUID = -3011245822946210763L;
 
 	private Integer quantidade;
+	private BigDecimal desconto;
 	private BigDecimal valor;
-	@ElementCollection
-	private List<Produto> produtos;
+	@OneToOne(cascade = CascadeType.PERSIST)
+	private Produto produto;
 	
-	public ItemPedido(Long id, Integer quantidade, BigDecimal valor, List<Produto> produtos){
-		this(quantidade, valor, produtos);
+	public ItemPedido(Long id, Integer quantidade, BigDecimal valor, Produto produto){
+		this(quantidade, valor, produto);
 		this.setId(id);
 	}
 	
 	
-	public ItemPedido(Integer quantidade, BigDecimal valor, List<Produto> produtos) {
+	public ItemPedido(Integer quantidade, BigDecimal valor, Produto produto) {
 
 		this();
 		this.quantidade = quantidade;
 		this.valor = valor;
-		this.produtos = produtos;
+		this.produto = produto;
 	}
 
 
 	public ItemPedido(){
-		this.produtos = new ArrayList<Produto>();
+		this.produto = new Produto();
 	}
 	
+	public BigDecimal getDesconto() {
+		return desconto;
+	}
+
+
+	public void setDesconto(BigDecimal desconto) {
+		this.desconto = desconto;
+	}
+
+
 	public Integer getQuantidade() {
 		return quantidade;
 	}
@@ -49,13 +59,17 @@ public class ItemPedido extends EntidadeDominio{
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
-	public List<Produto> getProdutos() {
-		return produtos;
-	}
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
-	}
 	
+	public Produto getProduto() {
+		return produto;
+	}
+
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+
+
 	@Override
 	public String toString() {
 
@@ -66,10 +80,8 @@ public class ItemPedido extends EntidadeDominio{
 		retorno.append(getQuantidade());
 		retorno.append("\tValor - ");
 		retorno.append(getValor());
-		retorno.append("\nProdutos - ");
-		for(Produto p : produtos){
-			retorno.append(p);
-		}
+		retorno.append("\nProduto - ");
+		retorno.append(getProduto());
 		
 		return retorno.toString();
 	}

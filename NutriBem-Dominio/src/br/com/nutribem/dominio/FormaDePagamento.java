@@ -40,13 +40,7 @@ public class FormaDePagamento extends EntidadeDominio{
 	@Override
 	public String toString() {
 
-		StringBuilder retorno = new StringBuilder();
-		retorno.append("\nId - ");
-		retorno.append(this.getId());
-		retorno.append("\tForma - ");
-		retorno.append(getForma());
-				
-		return retorno.toString();
+		return getForma();
 	}
 
 	@Override
