@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -24,7 +25,7 @@ public class Pedido extends EntidadeDominio{
 	@OneToOne 
 	@JoinColumn(name = "pedido_status_id")
 	private PedidoStatus pedidoStatus;
-	@ElementCollection
+	@ElementCollection(fetch=FetchType.EAGER)
 	private List<ItemPedido> itens;
 	
 	public Pedido(Long id, BigDecimal valor, Date dataPedido, PedidoStatus pedidoStatus, List<ItemPedido> itens) {

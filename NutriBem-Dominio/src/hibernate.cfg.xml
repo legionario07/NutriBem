@@ -24,6 +24,7 @@
 		<mapping class="br.com.nutribem.dominio.Contato" />
 		<mapping class="br.com.nutribem.dominio.Endereco" />
 		<mapping class="br.com.nutribem.dominio.EntidadeDominio" />
+		<mapping class="br.com.nutribem.dominio.Entrada" />
 		<mapping class="br.com.nutribem.dominio.Estado" />
 		<mapping class="br.com.nutribem.dominio.FormaDePagamento" />
 		<mapping class="br.com.nutribem.dominio.Fornecedor" />

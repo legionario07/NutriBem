@@ -26,6 +26,9 @@ public class Pagamento extends EntidadeDominio {
 	private FormaDePagamento formaDePagamento;
 	@OneToOne(cascade = CascadeType.PERSIST)
 	private Pedido pedido;
+	@OneToOne(cascade = CascadeType.PERSIST)
+	private Colaborador colaborador;
+	
 	
 	public Pagamento(Long id, Date dataPagamento, BigDecimal valorPago, FormaDePagamento formaDePagamento, Pedido pedido) {
 		
@@ -45,6 +48,7 @@ public class Pagamento extends EntidadeDominio {
 	public Pagamento(){
 		this.formaDePagamento = new FormaDePagamento();
 		this.pedido = new Pedido();
+		this.colaborador = new Colaborador();
 	}
 	
 
@@ -65,6 +69,14 @@ public class Pagamento extends EntidadeDominio {
 	public BigDecimal getValorPago() {
 		return valorPago;
 	}
+	public Colaborador getColaborador() {
+		return colaborador;
+	}
+
+	public void setColaborador(Colaborador colaborador) {
+		this.colaborador = colaborador;
+	}
+
 	public void setValorPago(BigDecimal valorPago) {
 		this.valorPago = valorPago;
 	}

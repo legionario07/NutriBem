@@ -7,7 +7,10 @@ import java.util.List;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.IndexColumn;
 
 @Entity @Table(name = "caixa_loja")
 public class CaixaLoja extends Caixa {
@@ -18,21 +21,16 @@ public class CaixaLoja extends Caixa {
 	private static final long serialVersionUID = 1L;
 
 	
-	@ElementCollection()
-	private List<Pagamento> pagamentos;
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
+	@IndexColumn(name= "id")	
+	private List<Entrada> entradas;
+	@ElementCollection(fetch = FetchType.EAGER)
+	@IndexColumn(name= "id")
 	private List<Retirada> retiradas;
-	@ElementCollection
+	@ElementCollection()
 	private List<CaixaFuncionario> caixas;
 
 	
-	public List<Pagamento> getPagamentos() {
-		return pagamentos;
-	}
-
-	public void setPagamentos(List<Pagamento> pagamentos) {
-		this.pagamentos = pagamentos;
-	}
 
 	public List<Retirada> getRetiradas() {
 		return retiradas;
@@ -52,20 +50,20 @@ public class CaixaLoja extends Caixa {
 	}
 
 	public CaixaLoja(Long id, BigDecimal valor, Date data, 
-			List<Pagamento> pagamentos, List<Retirada> retiradas, List<CaixaFuncionario> caixas) {
+			List<Entrada> entradas, List<Retirada> retiradas, List<CaixaFuncionario> caixas) {
 
-		this(valor, data, pagamentos, retiradas, caixas);
+		this(valor, data, entradas, retiradas, caixas);
 		this.setId(id);
 		
 	}
 	
 	public CaixaLoja(BigDecimal valor, Date data, 
-			List<Pagamento> pagamentos, List<Retirada> retiradas, List<CaixaFuncionario> caixas){
+			List<Entrada> entradas, List<Retirada> retiradas, List<CaixaFuncionario> caixas){
 		
 		this();
 		this.setValor(valor);
 		this.setData(data);
-		this.pagamentos = pagamentos;
+		this.entradas = entradas;
 		this.retiradas = retiradas;
 		this.caixas = caixas;
 		
@@ -73,7 +71,7 @@ public class CaixaLoja extends Caixa {
 	
 
 	public CaixaLoja() {
-		pagamentos = new ArrayList<Pagamento>();
+		entradas = new ArrayList<Entrada>();
 		retiradas = new ArrayList<Retirada>();
 		caixas = new ArrayList<CaixaFuncionario>();
 		
@@ -86,8 +84,8 @@ public class CaixaLoja extends Caixa {
 		retorno.append(super.toString());
 		
 		retorno.append("\nPagamentos: ");
-		for (Pagamento pagamento : pagamentos) {
-			retorno.append(pagamento);
+		for (Entrada entrada : entradas) {
+			retorno.append(entrada);
 		}
 		
 		retorno.append("\nRetiradas: ");
@@ -101,6 +99,14 @@ public class CaixaLoja extends Caixa {
 		}
 		
 		return retorno.toString();
+	}
+
+	public List<Entrada> getEntradas() {
+		return entradas;
+	}
+
+	public void setEntradas(List<Entrada> entradas) {
+		this.entradas = entradas;
 	}
 
 }
