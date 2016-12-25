@@ -20,10 +20,10 @@ public abstract class Caixa extends EntidadeDominio{
 	private Date data;
 	private String identificao;
 	
-	public Caixa(Long id, BigDecimal valor, Date data, String identificao){
+	public Caixa(Long id, BigDecimal valor, Date data, String identificacao){
 		this(valor, data);
 		this.setId(id);
-		this.setIdentificao(identificao);
+		this.setIdentificacao(identificacao);
 		
 	}
 	
@@ -43,11 +43,11 @@ public abstract class Caixa extends EntidadeDominio{
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
-	public String getIdentificao() {
+	public String getIdentificacao() {
 		return identificao;
 	}
 
-	public void setIdentificao(String identificao) {
+	public void setIdentificacao(String identificao) {
 		this.identificao = identificao;
 	}
 
