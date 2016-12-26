@@ -18,7 +18,7 @@ public abstract class Caixa extends EntidadeDominio{
 	private BigDecimal valor;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date data;
-	private String identificao;
+	private String identificacao;
 	
 	public Caixa(Long id, BigDecimal valor, Date data, String identificacao){
 		this(valor, data);
@@ -44,11 +44,11 @@ public abstract class Caixa extends EntidadeDominio{
 		this.valor = valor;
 	}
 	public String getIdentificacao() {
-		return identificao;
+		return identificacao;
 	}
 
 	public void setIdentificacao(String identificao) {
-		this.identificao = identificao;
+		this.identificacao = identificao;
 	}
 
 	public Date getData() {
